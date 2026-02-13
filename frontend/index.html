@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Hotel Reservation System</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- LOGIN PAGE -->
+<div id="loginPage" class="auth-container">
+  <div class="auth-box">
+    <h2>Hotel Login</h2>
+    <input type="text" id="loginUser" placeholder="Username">
+    <input type="password" id="loginPass" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p>New user? <span onclick="showSignup()" class="link">Create account</span></p>
+  </div>
+</div>
+
+<!-- SIGNUP PAGE -->
+<div id="signupPage" class="auth-container" style="display:none;">
+  <div class="auth-box">
+    <h2>Create Account</h2>
+    <input type="text" id="signupUser" placeholder="Username">
+    <input type="password" id="signupPass" placeholder="Password">
+    <button onclick="signup()">Signup</button>
+    <p>Already have account? <span onclick="showLogin()" class="link">Login</span></p>
+  </div>
+</div>
+<div id="dashboard" style="display:none;">
+<!-- NAVBAR -->
+<div class="navbar">
+  <h2>🏨 Smart Hotel Booking System</h2>
+  <!-- <p>SDE Assessment Project</p> -->
+</div>
+
+<!-- MAIN DASHBOARD -->
+<div class="container">
+
+  <div class="card booking-card">
+    <h3>Room Booking Panel</h3>
+
+    <input type="number" id="roomCount" placeholder="Enter number of rooms (max 5)">
+    
+    <div class="btn-group">
+      <button class="btn book" onclick="bookRooms()">Book Rooms</button>
+      <button class="btn random" onclick="randomOccupancy()">Random Occupancy</button>
+      <button class="btn reset" onclick="reset()">Reset</button>
+    </div>
+
+    <div class="result" id="result">
+      Booking result will appear here
+    </div>
+
+    <div class="legend">
+      <span class="box available"></span> Available
+      <span class="box occupied"></span> Occupied
+      <span class="box booked"></span> Your Booking
+    </div>
+  </div>
+
+  <div class="card hotel-card">
+    <h3>Hotel Room Visualization</h3>
+    <div id="hotel"></div>
+  </div>
+
+</div>
+<!-- LOADER -->
+<div id="loader" class="loader hidden">Finding best rooms...</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+  <div class="stats">
+    <div class="stat-box">Total Rooms: <b>97</b></div>
+    <div class="stat-box">Max Booking: <b>5</b></div>
+    <div class="stat-box">Floors: <b>10</b></div>
+    <div class="stat-box" id="occupiedCount">Occupied: 0</div>
+  </div>
+
+  <div class="history">
+    <h3>Booking History</h3>
+    <ul id="historyList"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
